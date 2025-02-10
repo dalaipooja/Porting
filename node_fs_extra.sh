@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 #
 # Package	: node-fs-extra
-# Version	: v2.1.2
+# Version	: latest
 # Source repo	: https://github.com/jprichardson/node-fs-extra
 # Tested on	: UBI:9
 # Language      : Node
@@ -17,17 +17,12 @@
 #             contact "Maintainer" of this script.
 #
 # ----------------------------------------------------------------------------
-PACKAGE_NAME={node-fs-extra}
-PACKAGE_VERSION={v2.1.2}
-PACKAGE_URL={https://github.com/jprichardson/node-fs-extra.git}
-
-export NODE_VERSION=${NODE_VERSION:-16}
-yum install -y python3 python3-devel.ppc64le git gcc gcc-c++ libffi make
+#Install dependencies
+yum install -y nodejs
 
 
-git clone $PACKAGE_URL
-cd  $PACKAGE_NAME
-git checkout $PACKAGE_VERSION
+git clone https://github.com/jprichardson/node-fs-extra
+cd  node-fs-extra
 
 if ! npm install fs-extra; then
     echo "------------------$PACKAGE_NAME:install_fails-------------------------------------"
